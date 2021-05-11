@@ -1,18 +1,20 @@
-export interface BankBalance {
-    checkBalance: () => number
-    printStatement: (balance: {balance: number}) => void
-} 
-
 class Bank {
-    constructor(private bankBalance: BankBalance) {
+
+    constructor(private balance: number, private printToStOut: (statement: { balance: number }) => void) {
     }
-    
+
     withdraw(amount: number) {
-        throw new Error('The balance is insufficient for the withdrawal request')
+        if (this.balance < amount)
+            throw new Error('The balance is insufficient for the withdrawal request');
+        this.balance = this.balance - amount
     }
 
     printStatement() {
+        this.printToStOut({ balance: this.balance });
+    }
 
+    deposit(amount: number) {
+        
     }
 }
 

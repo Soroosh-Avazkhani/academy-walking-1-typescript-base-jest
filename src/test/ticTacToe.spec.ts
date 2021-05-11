@@ -1,5 +1,5 @@
 import { TicTacToeGame } from '../main/ticTacToe';
-describe('[ticTacToe]', () => {
+describe.skip('[ticTacToe]', () => {
     it('should return ticTacToe board with X playing first', () => {
         const ticTacToeGame = new TicTacToeGame();
         expect(ticTacToeGame.play(0, 0)).toEqual([
